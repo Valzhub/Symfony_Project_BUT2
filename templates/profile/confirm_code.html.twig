@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block title %}Confirmation{% endblock %}
+{% block body %}
+<h1>Code de confirmation</h1>
+<p>Entrez le code à 6 chiffres reçu par email (valable 10 minutes).</p>
+<form method="post">
+    <input type="text" name="code" maxlength="6" class="form-control" required>
+    <button type="submit" class="btn btn-primary mt-2">Valider</button>
+</form>
+{% endblock %}

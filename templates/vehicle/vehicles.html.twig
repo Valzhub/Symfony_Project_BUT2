@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Véhicules Magiques{% endblock %}
+
+{% block body %}
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="text-primary"><i class="bi bi-moon-stars"></i> Liste des Véhicules Magiques</h1>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="btn btn-success" href="{{ path('vehicle_edit_or_create') }}">
+                <i class="bi bi-magic"></i> Ajouter un véhicule magique
+            </a>
+        {% endif %}
+
+        
+    </div>
+
+    <div class="card mb-4 filter-card">
+    <div class="card-body">
+        
+        {{ form_start(form, { method: 'get' }) }}
+
+        <div class="row">
+
+            <div class="col-md-3">
+                {{ form_row(form.type) }}
+            </div>
+
+            <div class="col-md-3">
+                {{ form_row(form.capacity) }}
+            </div>
+
+            <div class="col-md-3">
+                {{ form_row(form.priceMin) }}
+            </div>
+
+            <div class="col-md-3">
+                {{ form_row(form.priceMax) }}
+            </div>
+
+        </div>
+
+        <hr>
+
+        <h5 class="mt-3">Enchantements </h5>
+
+        <div class="row">
+            <div class="col-12">
+                {{ form_widget(form.features) }}
+            </div>
+        </div>
+
+        <h5 class="mt-3">Dates </h5>
+
+        <div class="row">
+            <div class="col-12">
+               {{ form_row(form.startDate, {'label': 'Date de début '}) }}
+               {{ form_row(form.endDate, {'label': 'Date de fin '}) }}
+            </div>
+        </div>
+
+
+
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">
+                Filtrer
+            </button>
+
+            <a href="{{ path('app_vehicle') }}" class="btn btn-secondary">
+                Réinitialiser
+            </a>
+        </div>
+
+        {{ form_end(form) }}
+
+    </div>
+</div>
+
+    <div class="row">
+        <div id="vehicle-list" data-filter-target="results">
+            {% include 'vehicle/_list.html.twig' %}
+        </div>
+    </div>
+
+
+{% endblock %}

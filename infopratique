@@ -1,0 +1,10 @@
+Symfony : 
+
+http://localhost:8080/
+
+-> PostGree SQL -> DataBase -> app -> app -> app
+
+#RAF
+-> Mail de contact, Mail de changement de mot de passe.
+-> Sauvegarder les dates de réservations.
+-> Revoir le style sur la page vehicule 

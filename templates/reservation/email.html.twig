@@ -1,0 +1,14 @@
+<p>Bonjour {{ reservation.user.firstName ?? reservation.user.email }},</p>
+
+<p>Votre réservation a bien été confirmée. Voici le récapitulatif :</p>
+
+<ul>
+    <li><strong>Véhicule :</strong> {{ vehicle.name }}</li>
+    <li><strong>Date de début :</strong> {{ reservation.startDate|date('d/m/Y') }}</li>
+    <li><strong>Date de fin :</strong> {{ reservation.endDate|date('d/m/Y') }}</li>
+    #<li><strong>Référence :</strong> {{ reservation.confirmationToken }}</li>
+</ul>
+
+<p>Présentez ce mail ou votre bon de réservation lors de la récupération du véhicule. Le paiement s'effectue au comptoir.</p>
+
+<p>L'équipe Magic Vehicles</p>
